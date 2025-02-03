@@ -1,0 +1,25 @@
+# EKS Cluster with Karpenter
+
+This Terraform code deploys an Amazon EKS cluster with Karpenter, supporting both `x86` and `arm64` (Graviton) instances.
+
+## Prerequisites
+1. Terraform installed.
+2. AWS CLI configured with credentials.
+3. Existing VPC and subnets
+### **Explanation**
+1. **EKS Cluster**: The `terraform-aws-modules/eks/aws` module is used to create the EKS cluster.
+2. **Karpenter**: Installed via Helm, with IRSA (IAM Roles for Service Accounts) for permissions.
+3. **Provisioner**: There two Karpenter's  configured to support both `amd64` and `arm64` instances.
+
+
+### **Next Steps**
+- Replace the `vpc_id` , `security_group`,  `AWS_REGION` and `subnet_ids` with your existing values.
+- Run `terraform init` to initialize
+- Run `terraform apply` to deploy the infrastructure.
+
+
+### **Testing**
+- To run a graviton instance run `kubectl apply -f arm64.yaml`
+- To run a x86 instance run `kubectl apply -f amd64.yaml`
+
+

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod-arm
+  labels:
+    karpenter.sh/provisioner-name: arm64
+spec:
+  containers:
+  - name: example-container
+    image: nginx
+    resources:
+      requests:
+        cpu: 1
+        memory: 1Gi
+  nodeSelector:
+    kubernetes.io/arch: arm64
+    karpenter.sh/capacity-type: spot
