@@ -9,7 +9,7 @@ This Terraform code deploys an Amazon EKS cluster with Karpenter, supporting bot
 ### **Explanation**
 1. **EKS Cluster**: The `terraform-aws-modules/eks/aws` module is used to create the EKS cluster.
 2. **Karpenter**: Installed via Helm, with IRSA (IAM Roles for Service Accounts) for permissions.
-3. **Provisioner**: There two Karpenter's  configured to support both `amd64` and `arm64` instances.
+3. **Provisioner**: There are two Karpenter provisioners configured to support both `amd64` and `arm64` instances.
 
 
 ### **Next Steps**
